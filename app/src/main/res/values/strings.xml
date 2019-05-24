@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Star Search</string>
+    <string name="query_result_empty">Nothing was found matching your query</string>
+    <string name="no_network_error">No network connection</string>
+    <string name="server_error">Server error</string>
+    <string name="query_hint">Type here</string>
+    <string name="start_typing">Start typing the name of the Star Wars character you would like to find out about</string>
+</resources>

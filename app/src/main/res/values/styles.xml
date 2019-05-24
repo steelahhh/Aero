@@ -1,0 +1,22 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorSecondary">@color/colorAccent</item>
+        <item name="colorSurface">@color/colorAccent</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="colorOnBackground">#FFF</item>
+        <item name="android:colorBackground">@color/gray</item>
+        <item name="android:statusBarColor">?colorSurface</item>
+    </style>
+
+    <style name="AppText">
+        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Body1</item>
+    </style>
+
+    <style name="AppText.Header">
+        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Headline5</item>>
+    </style>
+</resources>
