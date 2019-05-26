@@ -13,8 +13,8 @@ import com.mikepenz.fastadapter.ui.items.ProgressItem
 import io.github.steelahhh.R
 import io.github.steelahhh.core.hideSoftKeyboard
 import io.github.steelahhh.core.ui.MobiusKotlinView
-import io.github.steelahhh.feature.character.search.SearchFeature.Event
-import io.github.steelahhh.feature.character.search.SearchFeature.Model
+import io.github.steelahhh.feature.character.search.SearchCharacterFeature.Event
+import io.github.steelahhh.feature.character.search.SearchCharacterFeature.Model
 import io.github.steelahhh.feature.character.search.model.CharacterUi
 import io.reactivex.Observable
 import io.reactivex.disposables.CompositeDisposable
@@ -23,7 +23,7 @@ import io.reactivex.subjects.PublishSubject
 import kotlinx.android.synthetic.main.search_view.*
 import java.util.concurrent.TimeUnit
 
-class SearchView(
+class SearchCharacterView(
     inflater: LayoutInflater,
     container: ViewGroup
 ) : MobiusKotlinView<Model, Event>(R.layout.search_view, inflater, container) {

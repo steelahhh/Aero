@@ -1,6 +1,6 @@
 package io.github.steelahhh.feature.character.detail.di
 
-import io.github.steelahhh.feature.character.detail.CharacterFeature
+import io.github.steelahhh.feature.character.detail.CharacterDetailFeature
 import io.github.steelahhh.feature.character.repository.CharacterRepository
 import io.github.steelahhh.feature.character.repository.FilmRepository
 import io.github.steelahhh.feature.character.repository.PlanetRepository
@@ -29,7 +29,7 @@ val characterModule = module {
 
     scope(named(CHARACTER_SCOPE)) {
         scoped {
-            CharacterFeature.CharacterEffectHandler(get(), get(), get(), get())
+            CharacterDetailFeature.CharacterEffectHandler(get(), get(), get(), get())
         }
     }
 }

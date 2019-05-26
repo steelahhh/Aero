@@ -7,7 +7,7 @@ import com.bluelinelabs.conductor.Conductor
 import com.bluelinelabs.conductor.Router
 import io.github.steelahhh.R
 import io.github.steelahhh.core.Navigator
-import io.github.steelahhh.feature.character.search.SearchController
+import io.github.steelahhh.feature.character.search.SearchCharacterController
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.android.ext.android.inject
 
@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
 
         navigator.bind(router)
 
-        navigator.setRoot(SearchController())
+        navigator.setRoot(SearchCharacterController())
     }
 
     override fun onBackPressed() {

@@ -1,6 +1,6 @@
 package io.github.steelahhh.feature.character.search.di
 
-import io.github.steelahhh.feature.character.search.SearchFeature
+import io.github.steelahhh.feature.character.search.SearchCharacterFeature
 import io.github.steelahhh.feature.character.repository.CharacterRepository
 import io.github.steelahhh.feature.character.repository.FilmRepository
 import io.github.steelahhh.feature.character.repository.PlanetRepository
@@ -28,6 +28,6 @@ val searchModule = module {
     }
 
     scope(named(SEARCH_SCOPE)) {
-        scoped { SearchFeature.SearchEffectHandler(get(), get()) }
+        scoped { SearchCharacterFeature.SearchEffectHandler(get(), get()) }
     }
 }

@@ -14,7 +14,7 @@ import io.github.steelahhh.R
 import io.github.steelahhh.core.BaseEffectHandler
 import io.github.steelahhh.core.Navigator
 import io.github.steelahhh.core.consumer
-import io.github.steelahhh.feature.character.detail.CharacterController
+import io.github.steelahhh.feature.character.detail.CharacterDetailController
 import io.github.steelahhh.feature.character.repository.CharacterRepository
 import io.github.steelahhh.feature.character.search.model.CharacterUi
 import io.github.steelahhh.feature.character.search.model.toUi
@@ -22,7 +22,7 @@ import io.reactivex.Observable
 import io.reactivex.ObservableTransformer
 import kotlinx.android.parcel.Parcelize
 
-object SearchFeature {
+object SearchCharacterFeature {
     @Parcelize
     data class Model(
         val page: Int = 0,
@@ -71,7 +71,7 @@ object SearchFeature {
                     characters = listOf()
                 ),
                 setOf(
-                    SearchFeature.Effect.LoadCharacters(event.query)
+                    SearchCharacterFeature.Effect.LoadCharacters(event.query)
                 )
             )
             is Event.LoadNextCharacters -> next(
@@ -79,7 +79,7 @@ object SearchFeature {
                     query = event.query
                 ),
                 setOf(
-                    SearchFeature.Effect.LoadNextCharacters(
+                    SearchCharacterFeature.Effect.LoadNextCharacters(
                         event.query,
                         event.page
                     )
@@ -101,7 +101,7 @@ object SearchFeature {
             )
             is Event.OpenCharacterDetail -> dispatch(
                 setOf(
-                    SearchFeature.Effect.NavigateToCharacterDetail(event.character)
+                    SearchCharacterFeature.Effect.NavigateToCharacterDetail(event.character)
                 )
             )
         }
@@ -113,47 +113,47 @@ object SearchFeature {
     ) : BaseEffectHandler<Effect, Event>() {
         override fun create(): ObservableTransformer<Effect, Event> {
             return RxMobius.subtypeEffectHandler<Effect, Event>()
-                .addTransformer(SearchFeature.Effect.LoadCharacters::class.java) { effect ->
+                .addTransformer(SearchCharacterFeature.Effect.LoadCharacters::class.java) { effect ->
                     effect
                         .flatMap { (query: String) ->
                             if (query.isEmpty()) Observable.just(
-                                SearchFeature.Event.ErrorLoading(
+                                SearchCharacterFeature.Event.ErrorLoading(
                                     R.string.start_typing
                                 )
                             )
                             else repository.findCharacters(query).toObservable()
                                 .map<Event> { page ->
                                     val characters = page.characters.map { it.toUi() }
-                                    if (characters.isEmpty()) SearchFeature.Event.ErrorLoading(
+                                    if (characters.isEmpty()) SearchCharacterFeature.Event.ErrorLoading(
                                         R.string.query_result_empty
                                     )
-                                    else SearchFeature.Event.DisplayCharacters(
+                                    else SearchCharacterFeature.Event.DisplayCharacters(
                                         characters,
                                         page.nextPage
                                     )
                                 }
-                                .startWith(SearchFeature.Event.StartedLoading)
+                                .startWith(SearchCharacterFeature.Event.StartedLoading)
                                 .onErrorReturn {
-                                    SearchFeature.Event.ErrorLoading(
+                                    SearchCharacterFeature.Event.ErrorLoading(
                                         R.string.server_error
                                     )
                                 }
                         }
                 }
-                .addTransformer(SearchFeature.Effect.LoadNextCharacters::class.java) { effect ->
+                .addTransformer(SearchCharacterFeature.Effect.LoadNextCharacters::class.java) { effect ->
                     effect.flatMap {
                         repository.findCharacters(it.query, it.page).toObservable()
                             .map<Event> { page ->
                                 val characters = page.characters.map { it.toUi() }
-                                SearchFeature.Event.DisplayCharacters(
+                                SearchCharacterFeature.Event.DisplayCharacters(
                                     characters,
                                     page.nextPage
                                 )
                             }
                     }
                 }
-                .consumer(SearchFeature.Effect.NavigateToCharacterDetail::class.java) { effect ->
-                    navigator.pushController(CharacterController.newInstance(effect.character.id))
+                .consumer(SearchCharacterFeature.Effect.NavigateToCharacterDetail::class.java) { effect ->
+                    navigator.pushController(CharacterDetailController.newInstance(effect.character.id))
                 }
                 .build()
         }

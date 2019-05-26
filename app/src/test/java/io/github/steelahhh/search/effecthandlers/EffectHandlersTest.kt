@@ -2,10 +2,10 @@ package io.github.steelahhh.search.effecthandlers
 
 import io.github.steelahhh.core.Navigator
 import io.github.steelahhh.di.appModule
-import io.github.steelahhh.feature.character.search.SearchFeature
-import io.github.steelahhh.feature.character.search.SearchFeature.Effect.LoadCharacters
-import io.github.steelahhh.feature.character.search.SearchFeature.Effect.LoadNextCharacters
-import io.github.steelahhh.feature.character.search.SearchFeature.Effect.NavigateToCharacterDetail
+import io.github.steelahhh.feature.character.search.SearchCharacterFeature
+import io.github.steelahhh.feature.character.search.SearchCharacterFeature.Effect.LoadCharacters
+import io.github.steelahhh.feature.character.search.SearchCharacterFeature.Effect.LoadNextCharacters
+import io.github.steelahhh.feature.character.search.SearchCharacterFeature.Effect.NavigateToCharacterDetail
 import io.github.steelahhh.feature.character.search.di.searchModule
 import io.github.steelahhh.feature.character.search.model.CharacterUi
 import io.github.steelahhh.feature.character.repository.Character
@@ -38,7 +38,7 @@ class EffectHandlersTest {
 
     private val repository: CharacterRepository = mockk()
     private val navigator: Navigator = mockk()
-    private val effectHandler = SearchFeature.SearchEffectHandler(repository, navigator).create()
+    private val effectHandler = SearchCharacterFeature.SearchEffectHandler(repository, navigator).create()
 
     @Before
     fun before() {

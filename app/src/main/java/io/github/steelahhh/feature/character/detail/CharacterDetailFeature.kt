@@ -29,7 +29,7 @@ import io.reactivex.rxkotlin.toObservable
 import io.reactivex.rxkotlin.zipWith
 import kotlinx.android.parcel.Parcelize
 
-object CharacterFeature {
+object CharacterDetailFeature {
     @Parcelize
     data class Model(
         val characterId: Int,
@@ -62,7 +62,7 @@ object CharacterFeature {
 
     object CharacterUpdater : Update<Model, Event, Effect> {
         override fun update(model: Model, event: Event): Next<Model, Effect> = when (event) {
-            CharacterFeature.Event.StartedLoading -> next(
+            CharacterDetailFeature.Event.StartedLoading -> next(
                 model.copy(
                     isLoading = true
                 )

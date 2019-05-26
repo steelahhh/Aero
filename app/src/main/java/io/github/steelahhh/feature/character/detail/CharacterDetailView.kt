@@ -9,12 +9,12 @@ import com.mikepenz.fastadapter.adapters.FastItemAdapter
 import io.github.steelahhh.R
 import io.github.steelahhh.core.ui.HeaderItem
 import io.github.steelahhh.core.ui.MobiusKotlinView
-import io.github.steelahhh.feature.character.detail.CharacterFeature.Event
-import io.github.steelahhh.feature.character.detail.CharacterFeature.Model
+import io.github.steelahhh.feature.character.detail.CharacterDetailFeature.Event
+import io.github.steelahhh.feature.character.detail.CharacterDetailFeature.Model
 import io.reactivex.Observable
 import kotlinx.android.synthetic.main.character_view.*
 
-class CharacterView(
+class CharacterDetailView(
     inflater: LayoutInflater,
     container: ViewGroup
 ) : MobiusKotlinView<Model, Event>(R.layout.character_view, inflater, container) {

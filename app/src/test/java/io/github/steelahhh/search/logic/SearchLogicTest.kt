@@ -10,17 +10,17 @@ import com.spotify.mobius.test.NextMatchers.hasModel
 import com.spotify.mobius.test.NextMatchers.hasNoEffects
 import com.spotify.mobius.test.UpdateSpec
 import com.spotify.mobius.test.UpdateSpec.assertThatNext
-import io.github.steelahhh.feature.character.search.SearchFeature
-import io.github.steelahhh.feature.character.search.SearchFeature.Event.LoadCharacters
-import io.github.steelahhh.feature.character.search.SearchFeature.Model
+import io.github.steelahhh.feature.character.search.SearchCharacterFeature
+import io.github.steelahhh.feature.character.search.SearchCharacterFeature.Event.LoadCharacters
+import io.github.steelahhh.feature.character.search.SearchCharacterFeature.Model
 import io.github.steelahhh.feature.character.search.model.CharacterUi
 import org.junit.jupiter.api.Test
 
 class SearchLogicTest {
 
-    private val initSpec = InitSpec(SearchFeature.SearchInitializer)
+    private val initSpec = InitSpec(SearchCharacterFeature.SearchInitializer)
 
-    private val updateSpec = UpdateSpec(SearchFeature.SearchUpdater)
+    private val updateSpec = UpdateSpec(SearchCharacterFeature.SearchUpdater)
 
     @Test
     fun `Init should have no effects and contain empty model`() {
@@ -41,9 +41,9 @@ class SearchLogicTest {
         updateSpec.given(model)
             .whenEvent(LoadCharacters(query))
             .then(
-                assertThatNext<Model, SearchFeature.Effect>(
+                assertThatNext<Model, SearchCharacterFeature.Effect>(
                     hasModel(model.copy(query = query)),
-                    hasEffects(SearchFeature.Effect.LoadCharacters(query))
+                    hasEffects(SearchCharacterFeature.Effect.LoadCharacters(query))
                 )
             )
     }
@@ -56,7 +56,7 @@ class SearchLogicTest {
         )
         val model = Model(page = 0)
         updateSpec.given(model)
-            .whenEvent(SearchFeature.Event.DisplayCharacters(characters))
+            .whenEvent(SearchCharacterFeature.Event.DisplayCharacters(characters))
             .then(
                 assertThatNext(
                     hasModel(model.copy(characters = characters)),
@@ -71,11 +71,11 @@ class SearchLogicTest {
         val page = 2
         val model = Model(query = query, page = page)
         updateSpec.given(model)
-            .whenEvent(SearchFeature.Event.LoadNextCharacters(model.query, page))
+            .whenEvent(SearchCharacterFeature.Event.LoadNextCharacters(model.query, page))
             .then(
-                assertThatNext<Model, SearchFeature.Effect>(
+                assertThatNext<Model, SearchCharacterFeature.Effect>(
                     hasModel(model),
-                    hasEffects(SearchFeature.Effect.LoadNextCharacters(model.query, page))
+                    hasEffects(SearchCharacterFeature.Effect.LoadNextCharacters(model.query, page))
                 )
             )
     }
