@@ -44,7 +44,7 @@ data class Character(
 fun CharacterResponse.toDomain() = Character(
     id = url.lastSegmentOrZero,
     name = name,
-    height = height.toInt(),
+    height = height.toIntOrNull() ?: 0,
     birthYear = birthYear,
     planetId = homeworld.lastSegmentOrZero,
     speciesIds = species.map { it.lastSegmentOrZero },

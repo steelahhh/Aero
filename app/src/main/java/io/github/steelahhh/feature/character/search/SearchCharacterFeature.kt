@@ -21,6 +21,8 @@ import io.github.steelahhh.feature.character.search.model.toUi
 import io.reactivex.Observable
 import io.reactivex.ObservableTransformer
 import kotlinx.android.parcel.Parcelize
+import timber.log.Timber
+import timber.log.error
 
 object SearchCharacterFeature {
     @Parcelize
@@ -62,6 +64,7 @@ object SearchCharacterFeature {
             is Event.StartedLoading -> next(
                 model.copy(
                     isLoading = true,
+                    characters = listOf(),
                     errorRes = -1
                 )
             )
@@ -116,7 +119,7 @@ object SearchCharacterFeature {
                 .addTransformer(SearchCharacterFeature.Effect.LoadCharacters::class.java) { effect ->
                     effect
                         .flatMap { (query: String) ->
-                            if (query.isEmpty()) Observable.just(
+                            if (query.isBlank()) Observable.just(
                                 SearchCharacterFeature.Event.ErrorLoading(
                                     R.string.start_typing
                                 )
@@ -134,6 +137,9 @@ object SearchCharacterFeature {
                                 }
                                 .startWith(SearchCharacterFeature.Event.StartedLoading)
                                 .onErrorReturn {
+                                    Timber.error(it) {
+                                        ":("
+                                    }
                                     SearchCharacterFeature.Event.ErrorLoading(
                                         R.string.server_error
                                     )

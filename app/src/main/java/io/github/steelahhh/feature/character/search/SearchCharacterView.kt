@@ -48,7 +48,6 @@ class SearchCharacterView(
         return Observable.mergeArray<Event>(
             insideEvents.hide(),
             edit_query.textChanges()
-                .filter { it.isNotBlank() }
                 .debounce(250L, TimeUnit.MILLISECONDS)
                 .map { Event.LoadCharacters(it.toString()) }
         ).doOnDispose(compositeDisposable::dispose)

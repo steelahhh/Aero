@@ -30,6 +30,8 @@ import io.reactivex.rxkotlin.zipWith
 import kotlinx.android.parcel.Parcelize
 
 object CharacterDetailFeature {
+    private const val EMPTY_FIELD = "unknown"
+
     @Parcelize
     data class Model(
         val characterId: Int,
@@ -153,17 +155,23 @@ object CharacterDetailFeature {
             val feet = heightInches.toInt() / 12
             val inches = heightInches.toInt() % 12
 
-            return listOf(
-                CharacteristicItem(R.string.key_birth_year, birthYear),
-                CharacteristicItem(
+            val list = mutableListOf(CharacteristicItem(R.string.key_birth_year, birthYear))
+            if (height != 0) {
+                list += CharacteristicItem(
                     R.string.key_height_cm,
                     height.toString()
-                ),
-                CharacteristicItem(
+                )
+                list += CharacteristicItem(
                     R.string.key_height_feet,
                     "$feet′ $inches″"
                 )
-            )
+            } else {
+                list += CharacteristicItem(
+                    R.string.key_height,
+                    EMPTY_FIELD
+                )
+            }
+            return list
         }
 
     private val Species.characteristics
