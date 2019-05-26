@@ -9,7 +9,8 @@
         <item name="android:textColorPrimary">@color/white</item>
         <item name="colorOnBackground">#FFF</item>
         <item name="android:colorBackground">@color/gray</item>
-        <item name="android:statusBarColor">?colorSurface</item>
+        <item name="android:statusBarColor">@color/gray</item>
+        <item name="colorOnSurface">@color/darkerGray</item>
     </style>
 
     <style name="AppText">

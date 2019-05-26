@@ -90,13 +90,16 @@ dependencies {
     testImplementation(Dependencies.Room.test)
 
     testImplementation(Dependencies.Koin.test)
+    testImplementation(Dependencies.Mobius.test)
 
     androidTestImplementation(Dependencies.testRunner)
 
+    testImplementation(Dependencies.Mockk.core)
     testImplementation(Dependencies.JUnit.api)
     testRuntimeOnly(Dependencies.JUnit.engine)
 
     androidTestImplementation(Dependencies.JUnit.api)
+    androidTestImplementation(Dependencies.Mockk.android)
     androidTestImplementation(Dependencies.JUnit.Android.core)
     androidTestRuntimeOnly(Dependencies.JUnit.Android.runner)
     androidTestRuntimeOnly(Dependencies.JUnit.engine)

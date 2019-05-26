@@ -5,4 +5,22 @@
     <string name="server_error">Server error</string>
     <string name="query_hint">Type here</string>
     <string name="start_typing">Start typing the name of the Star Wars character you would like to find out about</string>
+    <string name="key_birth_year">Birth Year</string>
+    <string name="key_height_cm">Height (cm)</string>
+    <string name="key_height_feet">Height (ft)</string>
+    <string name="key_name">Name</string>
+    <string name="key_species_language">Language</string>
+    <string name="key_species_classification">Classification</string>
+    <string name="key_species_designation">Designation</string>
+    <string name="key_planet_name">Planet Name</string>
+    <string name="key_planet_population">Planet Population</string>
+
+    <string name="key_template">%s:</string>
+    <string name="about">About</string>
+    <string name="species">Species</string>
+    <string name="homeworld">Home World</string>
+    <string name="films">Films</string>
+
+    <string name="release_date_pattern">Release date: %s</string>
+    <string name="opening_crawl">Opening crawl:</string>
 </resources>
