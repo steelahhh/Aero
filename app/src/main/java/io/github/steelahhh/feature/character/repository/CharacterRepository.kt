@@ -22,7 +22,6 @@ class CharacterRepository(private val service: SwapiService) {
 
     fun getCharacter(id: Int) = service.getCharacter(id)
 
-    // TODO if there is enough time, think about caching
     fun saveCharacter(id: Int) = Completable.complete()
 }
 

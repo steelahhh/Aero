@@ -11,7 +11,7 @@ val localModule = module {
     single {
         Room.databaseBuilder(
             androidContext(),
-            SchedulesDatabase::class.java, "Schedules"
+            SwapiDatabase::class.java, "SwapiDatabase"
         ).fallbackToDestructiveMigration().build()
     }
 
