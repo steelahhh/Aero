@@ -13,7 +13,8 @@ import retrofit2.http.Query
 interface SwapiService {
     @GET("people/")
     fun getCharacterByName(
-        @Query(value = "search") query: String
+        @Query(value = "search") query: String,
+        @Query(value = "page") page: Int
     ): Single<Page<CharacterResponse>>
 
     @GET("people/{id}/")
