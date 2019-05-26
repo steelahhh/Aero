@@ -1,4 +1,4 @@
-package io.github.steelahhh.core
+package io.github.steelahhh.core.ui
 
 import android.os.Handler
 import android.os.Looper
