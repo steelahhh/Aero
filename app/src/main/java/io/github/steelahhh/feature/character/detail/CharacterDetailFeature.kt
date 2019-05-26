@@ -128,7 +128,7 @@ object CharacterDetailFeature {
                 .zipWith(
                     character.filmIds.toObservable().flatMapSingle {
                         filmRepository.getFilm(it)
-                    }.toList()
+                    }.toSortedList { first, second -> first.releaseDate.compareTo(second.releaseDate) }
                 ).zipWith(
                     speciesRepository.getSpecies(character.speciesIds.first())
                         .flatMap { species ->
