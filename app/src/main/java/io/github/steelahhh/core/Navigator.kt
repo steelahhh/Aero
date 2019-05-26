@@ -2,7 +2,9 @@ package io.github.steelahhh.core
 
 import com.bluelinelabs.conductor.Router
 import com.bluelinelabs.conductor.RouterTransaction
+import com.bluelinelabs.conductor.changehandler.HorizontalChangeHandler
 import com.bluelinelabs.conductor.changehandler.SimpleSwapChangeHandler
+import io.github.steelahhh.core.ui.BaseController
 
 class Navigator {
     private var _router: Router? = null
@@ -24,6 +26,16 @@ class Navigator {
                     .tag(controller::class.java.simpleName)
             )
         }
+    }
+
+    fun pushController(controller: BaseController) {
+        router.pushController(
+            RouterTransaction
+                .with(controller)
+                .popChangeHandler(HorizontalChangeHandler())
+                .pushChangeHandler(HorizontalChangeHandler())
+                .tag(controller::class.java.simpleName)
+        )
     }
 
     fun unbind() {
