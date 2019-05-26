@@ -14,6 +14,7 @@ import io.github.steelahhh.R
 import io.github.steelahhh.core.BaseEffectHandler
 import io.github.steelahhh.core.Navigator
 import io.github.steelahhh.core.consumer
+import io.github.steelahhh.feature.character.detail.CharacterController
 import io.github.steelahhh.feature.character.repository.CharacterRepository
 import io.github.steelahhh.feature.character.search.model.CharacterUi
 import io.github.steelahhh.feature.character.search.model.toUi
@@ -152,6 +153,7 @@ object SearchFeature {
                     }
                 }
                 .consumer(SearchFeature.Effect.NavigateToCharacterDetail::class.java) { effect ->
+                    navigator.pushController(CharacterController.newInstance(effect.character.id))
                 }
                 .build()
         }

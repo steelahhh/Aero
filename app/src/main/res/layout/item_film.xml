@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/item_film_id"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margin_normal"
+    app:cardBackgroundColor="?colorOnSurface"
+    app:cardCornerRadius="@dimen/margin_normal"
+    app:cardPreventCornerOverlap="false"
+    tools:background="@color/colorAccent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/margin_large"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/titleTv"
+            style="@style/AppText.Header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Episode I" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_normal" />
+
+        <TextView
+            android:id="@+id/releaseDateTv"
+            style="@style/AppText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="158BY" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_normal" />
+
+        <TextView
+            style="@style/AppText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/opening_crawl" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_normal" />
+
+        <TextView
+            android:id="@+id/openingCrawlTv"
+            style="@style/AppText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
