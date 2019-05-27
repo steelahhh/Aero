@@ -21,6 +21,9 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.plusAssign
 import io.reactivex.subjects.PublishSubject
 import kotlinx.android.synthetic.main.search_view.*
+import kotlinx.android.synthetic.main.search_view.errorTv
+import kotlinx.android.synthetic.main.search_view.progress
+import kotlinx.android.synthetic.main.search_view.recycler
 import java.util.concurrent.TimeUnit
 
 class SearchCharacterView(
@@ -74,15 +77,17 @@ class SearchCharacterView(
                 }
             }
         })
+        recycler.isVisible = !model.isLoading
         progress.isVisible = model.isLoading
         model.renderError()
         model.renderCharacters()
     }
 
     private fun Model.renderError() {
-        val isError = errorRes != -1
+        val isError = errorRes != -1 && characters.isEmpty()
         errorTv.isVisible = isError
         if (isError) errorTv.setText(errorRes)
+        recycler.isVisible = !isError
     }
 
     private fun Model.renderCharacters() {
