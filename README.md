@@ -1,5 +1,5 @@
-# Aero
-The project is based on [Star Wars API](https://swapi.co).
+# Star Search
+The project is based on [Star Wars API](https://swapi.co) and allows you to find any Star Wars character and get a detailed information about them.
 
 <img src="media/main.jpg" width="250"> <img src="media/detail.jpg" width="250">
 
