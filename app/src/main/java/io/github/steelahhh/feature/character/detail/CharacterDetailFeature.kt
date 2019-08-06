@@ -98,14 +98,6 @@ object CharacterDetailFeature {
                             .map { it.toDomain() }
                             .flatMap(::getCharacterInfo)
                             .toObservable()
-                            .map {
-                                DetailedCharacterInfo(
-                                    character = it.first.first,
-                                    species = it.second.first,
-                                    planet = it.second.second,
-                                    films = it.first.second
-                                )
-                            }
                             .map<Event> { (character, species, planet, films) ->
                                 val characterDetail = CharacterDetailUi(
                                     character.name,
@@ -132,14 +124,21 @@ object CharacterDetailFeature {
                         filmRepository.getFilm(it)
                     }.toSortedList { first, second -> first.releaseDate.compareTo(second.releaseDate) }
                 ).zipWith(
-                    speciesRepository.getSpecies(character.speciesIds.first())
+                    speciesRepository.getSpecies(character.speciesIds.firstOrNull() ?: -1)
                         .flatMap { species ->
                             Single.just(species).zipWith(
                                 planetRepository.getPlanet(species.planetId)
                             )
                         }
 
-                )
+                ).map { (characterAndFilms, planetInfo) ->
+                    DetailedCharacterInfo(
+                        character = characterAndFilms.first,
+                        species = planetInfo.first,
+                        planet = planetInfo.second,
+                        films = characterAndFilms.second
+                    )
+                }
     }
 
     private data class DetailedCharacterInfo(

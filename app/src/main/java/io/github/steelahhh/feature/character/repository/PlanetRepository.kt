@@ -11,14 +11,15 @@ class PlanetRepository(
 ) {
     fun getPlanet(id: Int) = service.getPlanet(id)
         .map { it.toDomain() }
+        .onErrorReturnItem(Planet())
         .subscribeOn(schedulers.io())
         .observeOn(schedulers.main())
 }
 
 data class Planet(
-    val id: Int,
-    val name: String,
-    val population: String
+    val id: Int = -1,
+    val name: String = "unknown",
+    val population: String = "unknown"
 )
 
 fun PlanetResponse.toDomain() = Planet(

@@ -11,17 +11,18 @@ class SpeciesRepository(
 ) {
     fun getSpecies(id: Int) = service.getSpecies(id)
         .map { it.toDomain() }
+        .onErrorReturnItem(Species())
         .subscribeOn(schedulers.io())
         .observeOn(schedulers.main())
 }
 
 data class Species(
-    val id: Int,
-    val name: String,
-    val classification: String,
-    val designation: String,
-    val language: String,
-    val planetId: Int
+    val id: Int = -1,
+    val name: String = "unknown",
+    val classification: String = "unknown",
+    val designation: String = "unknown",
+    val language: String = "unknown",
+    val planetId: Int = -1
 )
 
 fun SpeciesResponse.toDomain() = Species(
@@ -30,5 +31,5 @@ fun SpeciesResponse.toDomain() = Species(
     classification = classification,
     designation = designation,
     language = language,
-    planetId = homeworld.lastSegmentOrZero
+    planetId = homeworld?.lastSegmentOrZero ?: -1
 )

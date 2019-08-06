@@ -6,5 +6,5 @@ data class SpeciesResponse(
     val designation: String,
     val language: String,
     val url: String,
-    val homeworld: String
+    val homeworld: String?
 )
