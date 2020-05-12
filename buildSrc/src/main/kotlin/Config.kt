@@ -12,7 +12,9 @@ object Versions {
 
     const val androidx = "1.2.0"
     const val constraint = "1.1.3"
-    const val fastadapter = "4.0.0-rc04"
+    // TODO: the only special thing about this lib, is that it has built-in filter functionality,
+    //  consider migrating to either plain adapters, or some other lib
+    const val fastadapter = "4.1.2"
     const val conductor = "3.0.0-rc1"
 
     const val koin = "2.1.5"
