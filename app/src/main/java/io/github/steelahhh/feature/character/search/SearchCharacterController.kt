@@ -9,7 +9,7 @@ import com.spotify.mobius.android.AndroidLogger
 import com.spotify.mobius.android.MobiusAndroid.controller
 import com.spotify.mobius.rx2.RxConnectables
 import com.spotify.mobius.rx2.RxMobius
-import io.github.steelahhh.core.ui.BaseController
+import io.github.steelahhh.core.BaseController
 import io.github.steelahhh.feature.character.search.SearchCharacterFeature.Event
 import io.github.steelahhh.feature.character.search.SearchCharacterFeature.Model
 import io.github.steelahhh.feature.character.search.di.SEARCH_SCOPE

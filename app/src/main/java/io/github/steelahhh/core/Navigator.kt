@@ -4,7 +4,6 @@ import com.bluelinelabs.conductor.Router
 import com.bluelinelabs.conductor.RouterTransaction
 import com.bluelinelabs.conductor.changehandler.HorizontalChangeHandler
 import com.bluelinelabs.conductor.changehandler.SimpleSwapChangeHandler
-import io.github.steelahhh.core.ui.BaseController
 
 class Navigator {
     private var _router: Router? = null

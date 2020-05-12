@@ -50,6 +50,8 @@ dependencies {
     implementation(Dependencies.coreKtx)
     implementation(Dependencies.constraint)
     implementation(Dependencies.material)
+    implementation(Dependencies.fragment)
+    implementation(Dependencies.viewModelKtx)
 
     implementation(Dependencies.Conductor.core)
     implementation(Dependencies.Conductor.lifecycle)

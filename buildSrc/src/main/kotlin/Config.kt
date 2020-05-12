@@ -46,6 +46,8 @@ object Dependencies {
     const val appcompat = "androidx.appcompat:appcompat:${Versions.androidx}-beta01"
     const val constraint = "androidx.constraintlayout:constraintlayout:${Versions.constraint}"
     const val material = "com.google.android.material:material:1.2.0-alpha05"
+    const val fragment = "androidx.fragment:fragment-ktx:1.2.4"
+    const val viewModelKtx = "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
 
     object Conductor {
         const val core = "com.bluelinelabs:conductor:${Versions.conductor}"
