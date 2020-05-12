@@ -2,15 +2,15 @@ package io.github.steelahhh.search.effecthandlers
 
 import io.github.steelahhh.core.Navigator
 import io.github.steelahhh.di.appModule
+import io.github.steelahhh.feature.character.repository.Character
+import io.github.steelahhh.feature.character.repository.CharacterRepository
+import io.github.steelahhh.feature.character.repository.Characters
 import io.github.steelahhh.feature.character.search.SearchCharacterFeature
 import io.github.steelahhh.feature.character.search.SearchCharacterFeature.Effect.LoadCharacters
 import io.github.steelahhh.feature.character.search.SearchCharacterFeature.Effect.LoadNextCharacters
 import io.github.steelahhh.feature.character.search.SearchCharacterFeature.Effect.NavigateToCharacterDetail
 import io.github.steelahhh.feature.character.search.di.searchModule
 import io.github.steelahhh.feature.character.search.model.CharacterUi
-import io.github.steelahhh.feature.character.repository.Character
-import io.github.steelahhh.feature.character.repository.CharacterRepository
-import io.github.steelahhh.feature.character.repository.Characters
 import io.mockk.called
 import io.mockk.every
 import io.mockk.mockk
@@ -23,6 +23,7 @@ import io.reactivex.internal.schedulers.ExecutorScheduler
 import io.reactivex.observers.TestObserver
 import io.reactivex.plugins.RxJavaPlugins
 import io.reactivex.subjects.PublishSubject
+import java.util.concurrent.Executor
 import org.junit.After
 import org.junit.Before
 import org.junit.ClassRule
@@ -32,7 +33,6 @@ import org.junit.runner.Description
 import org.junit.runners.model.Statement
 import org.koin.core.context.startKoin
 import org.koin.core.context.stopKoin
-import java.util.concurrent.Executor
 
 class EffectHandlersTest {
 

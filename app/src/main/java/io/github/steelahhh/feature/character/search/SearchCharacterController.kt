@@ -14,12 +14,12 @@ import io.github.steelahhh.feature.character.search.SearchCharacterFeature.Event
 import io.github.steelahhh.feature.character.search.SearchCharacterFeature.Model
 import io.github.steelahhh.feature.character.search.di.SEARCH_SCOPE
 import org.koin.androidx.scope.bindScope
-import org.koin.core.context.GlobalContext.get
+import org.koin.core.context.KoinContextHandler.get
 import org.koin.core.qualifier.named
 
 class SearchCharacterController : BaseController() {
 
-    private val scope = get().koin.getOrCreateScope("searchScopeId", named(SEARCH_SCOPE))
+    private val scope = get().getOrCreateScope("searchScopeId", named(SEARCH_SCOPE))
 
     private val controller: MobiusLoop.Controller<Model, Event> = controller(
         RxMobius.loop(

@@ -6,7 +6,6 @@ import org.koin.android.ext.koin.androidContext
 import org.koin.android.logger.AndroidLogger
 import org.koin.core.context.startKoin
 import org.koin.core.logger.Level
-import timber.log.LogcatTree
 import timber.log.Timber
 
 @Suppress("unused")
@@ -18,7 +17,7 @@ class StarSearchApplication : Application() {
     }
 
     private fun setupTimber() {
-        if (BuildConfig.DEBUG) Timber.plant(LogcatTree())
+        if (BuildConfig.DEBUG) Timber.plant(Timber.DebugTree())
     }
 
     private fun setupKoin() {

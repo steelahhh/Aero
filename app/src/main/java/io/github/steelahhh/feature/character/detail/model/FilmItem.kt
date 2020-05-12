@@ -6,10 +6,10 @@ import com.mikepenz.fastadapter.FastAdapter
 import com.mikepenz.fastadapter.items.AbstractItem
 import io.github.steelahhh.R
 import io.github.steelahhh.feature.character.repository.Film
-import kotlinx.android.parcel.Parcelize
-import kotlinx.android.synthetic.main.item_film.view.*
 import java.text.SimpleDateFormat
 import java.util.Locale
+import kotlinx.android.parcel.Parcelize
+import kotlinx.android.synthetic.main.item_film.view.*
 
 @Parcelize
 data class FilmItem(

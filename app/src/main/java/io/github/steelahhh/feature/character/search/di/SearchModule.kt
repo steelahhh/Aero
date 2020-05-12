@@ -1,10 +1,10 @@
 package io.github.steelahhh.feature.character.search.di
 
-import io.github.steelahhh.feature.character.search.SearchCharacterFeature
 import io.github.steelahhh.feature.character.repository.CharacterRepository
 import io.github.steelahhh.feature.character.repository.FilmRepository
 import io.github.steelahhh.feature.character.repository.PlanetRepository
 import io.github.steelahhh.feature.character.repository.SpeciesRepository
+import io.github.steelahhh.feature.character.search.SearchCharacterFeature
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 

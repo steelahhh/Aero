@@ -22,7 +22,6 @@ import io.reactivex.Observable
 import io.reactivex.ObservableTransformer
 import kotlinx.android.parcel.Parcelize
 import timber.log.Timber
-import timber.log.error
 
 object SearchCharacterFeature {
     @Parcelize
@@ -137,9 +136,7 @@ object SearchCharacterFeature {
                                 }
                                 .startWith(SearchCharacterFeature.Event.StartedLoading)
                                 .onErrorReturn {
-                                    Timber.error(it) {
-                                        ":("
-                                    }
+                                    Timber.e(it)
                                     SearchCharacterFeature.Event.ErrorLoading(
                                         R.string.server_error
                                     )

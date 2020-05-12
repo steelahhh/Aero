@@ -8,10 +8,11 @@ import io.github.steelahhh.data.remote.di.remoteModule
 import io.github.steelahhh.feature.character.detail.di.characterModule
 import io.github.steelahhh.feature.character.search.di.searchModule
 import org.koin.dsl.module
-import org.koin.experimental.builder.single
 
 val appModule = module {
-    single<Navigator>()
+    single {
+        Navigator()
+    }
     single<SchedulersProvider> {
         SchedulersProviderImpl()
     }

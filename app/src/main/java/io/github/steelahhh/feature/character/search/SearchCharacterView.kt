@@ -20,11 +20,11 @@ import io.reactivex.Observable
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.plusAssign
 import io.reactivex.subjects.PublishSubject
+import java.util.concurrent.TimeUnit
 import kotlinx.android.synthetic.main.search_view.*
 import kotlinx.android.synthetic.main.search_view.errorTv
 import kotlinx.android.synthetic.main.search_view.progress
 import kotlinx.android.synthetic.main.search_view.recycler
-import java.util.concurrent.TimeUnit
 
 class SearchCharacterView(
     inflater: LayoutInflater,

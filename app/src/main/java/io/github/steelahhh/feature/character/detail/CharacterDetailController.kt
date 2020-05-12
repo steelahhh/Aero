@@ -15,8 +15,9 @@ import io.github.steelahhh.feature.character.detail.CharacterDetailFeature.Event
 import io.github.steelahhh.feature.character.detail.CharacterDetailFeature.Model
 import io.github.steelahhh.feature.character.detail.di.CHARACTER_SCOPE
 import org.koin.androidx.scope.bindScope
-import org.koin.core.context.GlobalContext.get
+import org.koin.core.context.KoinContextHandler.get
 import org.koin.core.qualifier.named
+import org.koin.ext.getOrCreateScope
 
 class CharacterDetailController(
     bundle: Bundle
@@ -27,7 +28,7 @@ class CharacterDetailController(
         id = bundle.getInt(CHARACTER_ID)
     }
 
-    private val scope = get().koin.getOrCreateScope(
+    private val scope = get().getOrCreateScope(
         "characterDetailScopeId",
         named(CHARACTER_SCOPE)
     )

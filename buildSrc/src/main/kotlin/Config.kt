@@ -1,34 +1,32 @@
 object Config {
     const val minSdk = 21
-    const val targetSdk = 28
-    const val compileSdk = 28
+    const val targetSdk = 29
+    const val compileSdk = 29
     const val appVersionCode = 10000
     const val appVersionName = "1.0.0"
 }
 
 object Versions {
-    const val kotlin = "1.3.31"
-    const val androidPlugin = "3.4.0"
+    const val kotlin = "1.3.72"
+    const val androidPlugin = "4.0.0-beta05"
 
-    const val androidx = "1.0.2"
+    const val androidx = "1.2.0"
     const val constraint = "1.1.3"
     const val fastadapter = "4.0.0-rc04"
     const val conductor = "3.0.0-rc1"
 
-    const val koin = "2.0.0-GA4"
+    const val koin = "2.1.5"
 
     const val room = "2.1.0-alpha07"
 
-    const val klock = "1.4.0"
-
     const val mobius = "1.2.2"
-    
+
     const val rxBinding = "3.0.0-alpha2"
     const val rxKotlin = "2.3.0"
     const val rxRelay = "2.1.0"
     const val rxAndroid = "2.1.1"
 
-    const val timber = "5.0.0-SNAPSHOT"
+    const val timber = "4.7.1"
     const val retrofit = "2.5.0"
     const val gson = "2.8.5"
 
@@ -42,10 +40,10 @@ object Versions {
 object Dependencies {
     const val kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
 
-    const val coreKtx = "androidx.core:core-ktx:1.0.1"
-    const val appcompat = "androidx.appcompat:appcompat:${Versions.androidx}"
+    const val coreKtx = "androidx.core:core-ktx:${Versions.androidx}"
+    const val appcompat = "androidx.appcompat:appcompat:${Versions.androidx}-beta01"
     const val constraint = "androidx.constraintlayout:constraintlayout:${Versions.constraint}"
-    const val material = "com.google.android.material:material:1.1.0-alpha05"
+    const val material = "com.google.android.material:material:1.2.0-alpha05"
 
     object Conductor {
         const val core = "com.bluelinelabs:conductor:${Versions.conductor}"
@@ -79,7 +77,6 @@ object Dependencies {
         const val material = "com.jakewharton.rxbinding3:rxbinding-material:${Versions.rxBinding}"
     }
 
-
     object Rx {
         const val kotlin = "io.reactivex.rxjava2:rxkotlin:${Versions.rxKotlin}"
         const val android = "io.reactivex.rxjava2:rxandroid:${Versions.rxAndroid}"
@@ -111,7 +108,7 @@ object Dependencies {
 
     const val gson = "com.google.code.gson:gson:${Versions.gson}"
 
-    const val timber = "com.jakewharton.timber:timber-android:${Versions.timber}"
+    const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
 
     const val leakCanary = "com.squareup.leakcanary:leakcanary-android:${Versions.leakCanary}"
     const val leakSentry = "com.squareup.leakcanary:leaksentry:${Versions.leakCanary}"
